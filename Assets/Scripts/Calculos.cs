@@ -2,17 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DeclaracionDeVariables : MonoBehaviour
+public class Calculos : MonoBehaviour
 {
-    public int cantAulas = 3;
-    public float tamanio = 12.4f;
-    public string nombreAula = "Rosa";
-    public bool meTocaAhi = false; 
-
+    public int num1;
+    public int num2;
+    public int resultado;
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("");
+        resultado = num1 + num2;
+        Debug.Log(resultado);
     }
 
     // Update is called once per frame
