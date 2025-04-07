@@ -21,28 +21,41 @@ public class ComidaAnimalitos : MonoBehaviour
     {
         //2. Ingreso de datos (más adelante)
 
-        if(codAnimal == "G" || codAnimal == "g")   // == porque compara
+        if (cantDias < 3)
         {
-            racionAnimalActual = racionGatos;
-        } else if (codAnimal == "PP")
-        {
-            racionAnimalActual = racionPerrosPeque;
-        } else if (codAnimal == "PG")
-        {
-            racionAnimalActual = racionPerrosGrande;
+            Debug.Log("Cantidad de días no válida.");
+            // aca se puede poner un return y sacar el else.
         }
+        else
+        {
+            if(codAnimal == "G" || codAnimal == "g")   // == porque compara
+            {
+                racionAnimalActual = racionGatos;
+            } else if (codAnimal == "PP")
+            {
+                racionAnimalActual = racionPerrosPeque;
+            } else if (codAnimal == "PG")
+            {
+                racionAnimalActual = racionPerrosGrande;
+            }
+            else
+            {
+                Debug.Log("Código no válido.");
+                return; // Interrumpe la ejecucion de la funcion y no ejecuta la linea de codigo siguiente.
+            }
 
+            //3. Procesamiento de datos
 
-        //3. Procesamiento de datos
+            gramosComidaTotal = racionAnimalActual * cantDias;
+            costoFinal = gramosComidaTotal / 100 * precioPorCienGramos;
 
-        gramosComidaTotal = racionAnimalActual * cantDias;
-        costoFinal = gramosComidaTotal / 100 * precioPorCienGramos;
+            //4. Mostrar el resultado
 
-
-        //4. Mostrar el resultado
-
-        Debug.Log("Para ese periodo se necesitan " + gramosComidaTotal + " gramos de alimento");
-        Debug.Log("El costo de la cantidad de alimento es $ " + costoFinal);
+            Debug.Log("Para ese periodo se necesitan " + gramosComidaTotal + " gramos de alimento");
+            Debug.Log("El costo de la cantidad de alimento es $ " + costoFinal);
+        }
+        
+       
     }
 
     // Update is called once per frame
